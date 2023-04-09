@@ -1,9 +1,8 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using librarian_admin.Models;
 using X.PagedList;
-using Microsoft.EntityFrameworkCore;
 
 namespace librarian_admin.Areas.Admin.Controllers
 {
@@ -32,7 +31,7 @@ namespace librarian_admin.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult ThemThuThu()
         {
-            ViewBag.MaThuThu = new SelectList(db.Ques.ToList(), "MaQue", "TenQue");
+            ViewBag.MaQue = new SelectList(db.Ques.ToList(), "MaQue", "TenQue");
             return View();
         }
         [Route("ThemThuThu")]
@@ -50,9 +49,9 @@ namespace librarian_admin.Areas.Admin.Controllers
         }
         [Route("SuaThuThu")]
         [HttpGet]
-        public IActionResult SuaThuThu(string MaThuThu)
+        public IActionResult SuaThuThu(string maThuThu)
         {
-            var thuThu = db.ThuThus.Find(MaThuThu);
+            var thuThu = db.ThuThus.Find(maThuThu);
             ViewBag.MaQue = new SelectList(db.Ques.ToList(), "MaQue", "TenQue");
             return View(thuThu);
         }
@@ -71,21 +70,20 @@ namespace librarian_admin.Areas.Admin.Controllers
         }
         [Route("XoaThuThu")]
         [HttpGet]
-        public IActionResult XoaSanPham(string MathuThu)
+        public IActionResult XoaThuThu(string matt)
         {
             TempData["Message"] = "";
-            var listChiTiet = db.ThuThus.Where(x => x.MaThuThu == MathuThu);
-            foreach (var item in listChiTiet)
+            var lstChiTiet = db.ThuThus.Where(x => x.MaThuThu == matt);
+            foreach (var item in lstChiTiet)
             {
                 if (db.ThuThus.Where(x => x.MaThuThu == item.MaThuThu) != null)
                 {
-                    TempData["Message"] = "Lỗi xóa";
+                    TempData["Message"] = "Lỗi Xóa!!";
                     return RedirectToAction("DanhSachThuThu");
                 }
             }
-    
-            if (listChiTiet != null) db.RemoveRange(listChiTiet);
-            db.Remove(db.ThuThus.Find(MathuThu));
+            if (lstChiTiet != null) db.RemoveRange(lstChiTiet);
+            db.Remove(db.ThuThus.Find(matt));
             db.SaveChanges();
             TempData["Message"] = "Xóa thành công";
             return RedirectToAction("DanhSachThuThu");

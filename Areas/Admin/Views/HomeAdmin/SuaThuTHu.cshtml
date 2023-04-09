@@ -7,30 +7,25 @@
 
 <h1>SuaThuThu</h1>
 
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="SuaThuThu">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MaThuThu" />
-            <div class="form-group">
-                <label asp-for="MaThuThu" class="control-label"></label>
-                <select asp-for="MaThuThu" class="form-control"></select>
-                <span asp-validation-for="MaThuThu" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="MaThuThu"/>
             <div class="form-group">
                 <label asp-for="TenThuThu" class="control-label"></label>
-                <input asp-for="TenThuThu" class="form-control" />
+                <input asp-for="TenThuThu" class="form-control"/>
                 <span asp-validation-for="TenThuThu" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
+                <input asp-for="Username" class="form-control"/>
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Matkhau" class="control-label"></label>
-                <select asp-for="Matkhau" class="form-control"></select>
+                <input asp-for="Matkhau" class="form-control"/>
                 <span asp-validation-for="Matkhau" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -40,16 +35,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="DienThoaiCd" class="control-label"></label>
-                <select asp-for="DienThoaiCd" class="form-control"></select>
+                <input asp-for="DienThoaiCd" class="form-control"/>
                 <span asp-validation-for="DienThoaiCd" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DienThoaiDd" class="control-label"></label>
-                <select asp-for="DienThoaiDd" class="form-control"></select>
+                <input asp-for="DienThoaiDd" class="form-control"/>
                 <span asp-validation-for="DienThoaiDd" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary"/>
             </div>
         </form>
     </div>
@@ -58,4 +53,3 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-

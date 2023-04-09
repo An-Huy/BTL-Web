@@ -10,7 +10,7 @@
 <h1>Danh Sach Thu Thu</h1>
 
 <p>
-    <a asp-action="ThemSanPhamMoi">Thêm sản phẩm mới</a>
+    <a asp-action="ThemThuThu">Thêm thủ thư</a>
 </p>
 <p>@TempData["Message"]</p>
 <table class="table">
@@ -75,9 +75,9 @@
                     @Html.DisplayFor(modelItem => item.DienThoaiDd)
                 </td>
                 <td>
-                    <a asp-controller="HomeAdmin" asp-action="SuaThuThu" asp-route-maSanPham="@item.MaThuThu">Edit</a> |
+                    <a asp-controller="HomeAdmin" asp-action="SuaThuThu" asp-route-maThuThu="@item.MaThuThu">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.MaThuThu">Details</a> |
-                    <a asp-action="XoaThuThu" asp-route-maSp="@item.MaThuThu">Delete</a>
+                    <a asp-action="XoaThuThu" asp-route-matt="@item.MaThuThu">Delete</a>
                 </td>
             </tr>
         }
